@@ -498,6 +498,21 @@ h1 {
   padding: 1.25rem;
 }
 
+.tool-group-featured {
+  border-color: rgba(77, 125, 89, 0.28);
+  background:
+    linear-gradient(135deg, rgba(199, 242, 164, 0.28), rgba(255, 253, 244, 0.94)),
+    #fffdf4;
+}
+
+.tool-group-featured .tool-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tool-group-featured .tool-card {
+  min-height: 5.8rem;
+}
+
 .tool-group-head {
   display: flex;
   justify-content: space-between;
@@ -517,7 +532,9 @@ h1 {
 
 .tool-card {
   display: grid;
-  gap: 0.35rem;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.85rem;
   min-height: 6.6rem;
   padding: 1rem;
   border-radius: 8px;
@@ -528,6 +545,37 @@ h1 {
   background: #e4f6d8;
 }
 
+.tool-logo {
+  display: grid;
+  width: 3rem;
+  height: 3rem;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(23, 33, 27, 0.08);
+  border-radius: 8px;
+  background: #fffdf4;
+  color: #17211b;
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
+.tool-logo:empty::before {
+  content: attr(data-fallback);
+}
+
+.tool-logo img {
+  display: block;
+  width: 72%;
+  height: 72%;
+  object-fit: contain;
+}
+
+.tool-copy {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
 .tool-card b {
   color: #17211b;
 }
@@ -535,6 +583,103 @@ h1 {
 .tool-card span {
   color: #5d675f;
   line-height: 1.5;
+}
+
+.agents-section {
+  padding-top: 0;
+}
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.925fr 0.925fr;
+  gap: 1rem;
+}
+
+.agent-card {
+  display: flex;
+  min-height: 24rem;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.35rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(23, 33, 27, 0.1);
+  border-radius: 8px;
+  background: #fffdf4;
+}
+
+.agent-card-primary {
+  color: #fffdf4;
+  background:
+    linear-gradient(135deg, rgba(199, 242, 164, 0.12), rgba(23, 33, 27, 0.95)),
+    #17211b;
+}
+
+.agent-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.agent-avatar {
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(23, 33, 27, 0.1);
+  border-radius: 8px;
+  background: #e4f6d8;
+  color: #17211b;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.agent-card-primary .agent-avatar {
+  border-color: rgba(255, 253, 244, 0.22);
+  background: #c7f2a4;
+}
+
+.agent-kicker {
+  margin-bottom: 0.35rem;
+  color: #4d7d59;
+  font-size: 0.88rem;
+  font-weight: 850;
+}
+
+.agent-card-primary .agent-kicker,
+.agent-card-primary p,
+.agent-card-primary .agent-tags span {
+  color: rgba(255, 253, 244, 0.78);
+}
+
+.agent-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.agent-card p {
+  color: #5d675f;
+  line-height: 1.75;
+}
+
+.agent-tags,
+.agent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.agent-tags span {
+  padding: 0.36rem 0.62rem;
+  border-radius: 999px;
+  color: #4d7d59;
+  background: #e4f6d8;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.agent-card-primary .agent-tags span {
+  background: rgba(255, 253, 244, 0.1);
 }
 
 .course-section {
@@ -823,6 +968,7 @@ h1 {
 
   .signal-strip,
   .product-grid,
+  .agent-grid,
   .solution-board,
   .tool-grid,
   .course-section,
