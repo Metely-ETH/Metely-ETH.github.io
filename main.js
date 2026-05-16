@@ -1,46 +1,3 @@
-const solutions = {
-  growth: {
-    kicker: "Growth System",
-    title: "从一个获客问题，拆成内容、工具和成交动作",
-    text: "适合家居、餐饮、美业、教育、本地生活服务。先找到真实转化瓶颈，再用 AI 做内容脚本、客户问答、渠道素材和线索筛选。",
-    a: "32%",
-    b: "7天",
-    c: "1套",
-  },
-  content: {
-    kicker: "Content Engine",
-    title: "把短视频、直播和图文内容变成可复用生产线",
-    text: "从门店话术、产品卖点、用户评价和老板经验里提炼内容资产，再做成脚本、分镜、素材清单和发布节奏。",
-    a: "50+",
-    b: "3类",
-    c: "SOP",
-  },
-  order: {
-    kicker: "Order Loop",
-    title: "把浏览、预约、支付、客服和后台交接连成闭环",
-    text: "适合体验课、门店预约、服务报名、活动收单。先用轻量 H5 验证，再决定是否升级小程序或管理后台。",
-    a: "1条",
-    b: "24h",
-    c: "CSV",
-  },
-  process: {
-    kicker: "Process AI",
-    title: "把混乱流程拆成角色、字段、规则和看板",
-    text: "企业内部要先知道谁负责、记录什么数据、哪里验收、哪些风险必须拦截，AI 才能真正提效。",
-    a: "6段",
-    b: "RACI",
-    c: "看板",
-  },
-  training: {
-    kicker: "Training Camp",
-    title: "让团队带着真实任务学习，而不是只听工具演示",
-    text: "体验课、训练营和企业内训都围绕业务场景展开：现场拆需求、现场做工具、现场沉淀可复用模板。",
-    a: "2h",
-    b: "1题",
-    c: "共创",
-  },
-};
-
 const menuButton = document.querySelector("[data-menu-button]");
 const navLinks = document.querySelector("[data-nav-links]");
 const modal = document.getElementById("wechatModal");
@@ -59,23 +16,6 @@ navLinks?.addEventListener("click", (event) => {
     menuButton?.setAttribute("aria-label", "打开导航");
     if (menuButton) menuButton.innerHTML = '<span aria-hidden="true">☰</span>';
   }
-});
-
-document.querySelectorAll(".solution-tab").forEach((tab) => {
-  tab.addEventListener("click", () => {
-    document.querySelectorAll(".solution-tab").forEach((item) => item.setAttribute("aria-selected", "false"));
-    tab.setAttribute("aria-selected", "true");
-    const key = tab.getAttribute("data-solution");
-    const item = solutions[key];
-    if (!item) return;
-
-    setText("solutionKicker", item.kicker);
-    setText("solutionTitle", item.title);
-    setText("solutionText", item.text);
-    setText("solutionStatA", item.a);
-    setText("solutionStatB", item.b);
-    setText("solutionStatC", item.c);
-  });
 });
 
 document.querySelectorAll("[data-wechat]").forEach((button) => {
@@ -125,11 +65,6 @@ consultForm?.addEventListener("submit", async (event) => {
   consultForm.reset();
   openWechat();
 });
-
-function setText(id, value) {
-  const element = document.getElementById(id);
-  if (element) element.textContent = value;
-}
 
 function openWechat() {
   if (!modal) return;
