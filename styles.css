@@ -386,7 +386,7 @@ h1 {
 
 .experiments-products .section-heading::before {
   counter-increment: none;
-  content: "03+";
+  content: "04+";
   color: #8a3e2f;
   background: #fde6dc;
 }
@@ -408,10 +408,15 @@ h1 {
 }
 
 .product-grid,
+.note-grid,
 .case-grid,
 .method-grid {
   display: grid;
   gap: 1rem;
+}
+
+.note-grid {
+  grid-template-columns: 1.15fr repeat(3, minmax(0, 0.95fr));
 }
 
 .product-grid {
@@ -484,6 +489,7 @@ h1 {
 }
 
 .product-card,
+.note-card,
 .case-card,
 .method-grid article,
 .form-card,
@@ -504,6 +510,7 @@ h1 {
 }
 
 .product-card:hover,
+.note-card:hover,
 .case-card:hover,
 .tool-card:hover,
 .agent-card:hover,
@@ -524,6 +531,7 @@ h1 {
 }
 
 .product-card h3,
+.note-card h3,
 .case-card h3,
 .method-grid h3,
 .tool-group h3,
@@ -534,6 +542,7 @@ h1 {
 }
 
 .product-card p,
+.note-card p,
 .case-card p,
 .method-grid p,
 .tool-group p {
@@ -553,6 +562,49 @@ h1 {
   padding: 0.38rem 0.65rem;
   color: #356f42;
   background: #e4f6d8;
+}
+
+.note-card {
+  display: flex;
+  min-height: 17rem;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.25rem;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.note-card-primary {
+  color: #fffdf4;
+  background:
+    linear-gradient(145deg, rgba(199, 242, 164, 0.16), rgba(23, 33, 27, 0.98) 55%, rgba(218, 91, 69, 0.18)),
+    #17211b;
+}
+
+.note-card span {
+  display: grid;
+  width: 2.45rem;
+  height: 2.45rem;
+  place-items: center;
+  margin-bottom: 1.6rem;
+  border-radius: 8px;
+  color: #356f42;
+  background: #e4f6d8;
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.note-card-primary span {
+  color: #17211b;
+  background: #c7f2a4;
+}
+
+.note-card h3 {
+  font-size: 1.2rem;
+}
+
+.note-card-primary h3,
+.note-card-primary p {
+  color: rgba(255, 253, 244, 0.84);
 }
 
 .archive-projects {
@@ -1132,7 +1184,8 @@ h1 {
 }
 
 @media (max-width: 1180px) {
-  .agent-grid {
+  .agent-grid,
+  .note-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1192,6 +1245,7 @@ h1 {
 
   .signal-strip,
   .product-grid,
+  .note-grid,
   .agent-grid,
   .tool-grid,
   .course-board,
@@ -1266,6 +1320,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
+  .note-card,
   .course-card {
     min-height: auto;
   }
